@@ -42,12 +42,16 @@ const petSalon={
         }
     ]
 }
-console.log(petSalon.address.zip);
-console.log(petSalon.pets.length);
-console.log(petSalon.pets[0].service);
+//console.log(petSalon.address.zip);
+//console.log(petSalon.pets.length);
+//console.log(petSalon.pets[0].service);
 function displaySalonInfo(){
-    document.getElementById("footer-info").innerHTML=`Welcome ${petSalon.name} in ${petSalon.address.city}`;
-}
+    document.getElementById("footer-info").innerHTML=`Welcome to ${petSalon.name} in ${petSalon.address.city}`;
+};
+displaySalonInfo();
 function displayPetNames(){
-
-}
+    document.getElementById("petNames1").innerHTML=`<p><b>Pet Name:</b> ${petSalon.pets[0].name}</p>`;
+    document.getElementById("petNames2").innerHTML=`<p><b>Pet Name:</b> ${petSalon.pets[1].name}</p>`;
+    document.getElementById("petNames3").innerHTML=`<p><b>Pet Name:</b> ${petSalon.pets[2].name}</p>`;
+};
+displayPetNames();
