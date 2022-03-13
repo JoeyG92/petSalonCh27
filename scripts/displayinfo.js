@@ -25,4 +25,10 @@ function displayPetNames(){
     document.getElementById("petNames2").innerHTML=`<p><b>Pet Name:</b> ${petSalon.pets[1].name}</p>`;
     document.getElementById("petNames3").innerHTML=`<p><b>Pet Name:</b> ${petSalon.pets[2].name}</p>`;
 };
-//displayPetNames();
+function displayPets(){
+    //travel the array
+
+    //create the template
+
+    //display the tmp on the html
+}
