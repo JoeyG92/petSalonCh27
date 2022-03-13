@@ -12,35 +12,7 @@ const petSalon={
         open:"9:00 am",
         close:"5:00 pm"
     },//Create pets array
-    pets:[
-        {//first pet
-            name:"Scooby",
-            age:50,
-            gender:"Male",
-            breed:"Dane",
-            service:"Grooming",
-            ownerName:"Shaggy",
-            contactPhone:"888-888-8888"
-        },
-        {
-            name:"Scarlett",
-            age:1,
-            gender:"Female",
-            breed:"Lancashire",
-            service:"Nail Trim",
-            ownerName:"Joey",
-            contactPhone:"888-888-8889" 
-        },
-        {
-            name:"Mike Hat",
-            age:10,
-            gender:"Male",
-            breed:"German Shephard",
-            service:"Wash",
-            ownerName:"Mike",
-            contactPhone:"888-888-8887"
-        }
-    ]
+    pets:[]
 }
 //console.log(petSalon.address.zip);
 //console.log(petSalon.pets.length);
@@ -48,10 +20,9 @@ const petSalon={
 function displaySalonInfo(){
     document.getElementById("footer-info").innerHTML=`Welcome to ${petSalon.name} in ${petSalon.address.city}`;
 };
-displaySalonInfo();
 function displayPetNames(){
     document.getElementById("petNames1").innerHTML=`<p><b>Pet Name:</b> ${petSalon.pets[0].name}</p>`;
     document.getElementById("petNames2").innerHTML=`<p><b>Pet Name:</b> ${petSalon.pets[1].name}</p>`;
     document.getElementById("petNames3").innerHTML=`<p><b>Pet Name:</b> ${petSalon.pets[2].name}</p>`;
 };
-displayPetNames();
+//displayPetNames();
