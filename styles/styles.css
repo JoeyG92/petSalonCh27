@@ -23,3 +23,6 @@ body {
 main {
     text-align: center;
 }
+.bg-color {
+    background-color: brown;
+}

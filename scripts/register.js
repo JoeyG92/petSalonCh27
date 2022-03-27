@@ -1,3 +1,4 @@
+let x=0;
 function Pet(name,age,gender,breed,service,ownerName,phoneNumber){
     this.petName=name;
     this.petAge=age;
@@ -6,6 +7,7 @@ function Pet(name,age,gender,breed,service,ownerName,phoneNumber){
     this.petService=service;
     this.petOwnerName=ownerName;
     this.phoneNumber=phoneNumber;
+    this.id=x++;
 }
 
 let inputPetName= document.getElementById("txtPetName");
@@ -70,11 +72,57 @@ function displayPets(){
     //display the tmp on the html
 }
 
+function displayPetsTable(){
+    let row="";
+    for(let i=0;i<petSalon.pets.length;i++){
+        //create the template
+        row+=`
+        <tr id="${petSalon.pets[i].id}">
+            <td><b> Name:</b> ${petSalon.pets[i].petName}</td>
+            <td><b> Age:</b> ${petSalon.pets[i].petAge}</td>
+            <td><b> Gender:</b> ${petSalon.pets[i].petGender}</td>
+            <td><button onclick="deletePet(${petSalon.pets[i].id});">Delete</button></td>
+        </tr>
+        `;
+    }
+    document.getElementById("petTable").innerHTML=row;
+}
+function deletePet(petId){
+    console.log("Delete pet ", petId);
+    //travel the array to search the petId
+    for(let i=0; i<petSalon.pets.length;i++){
+        let pet=petSalon.pets[i];
+        if(pet.id==petId){
+            deleteIndex=i;
+            console.log("I found the pet ...", deleteIndex);
+        }
+    }
+    //remove pet from the array
+    petSalon.pets.splice(deleteIndex,1);
+    //remove the pet from html
+    document.getElementById(petId).remove();
+}
+function searchPet(){
+    let searchString=document.getElementById("txtSearch").value;
+    console.log(searchString);
+    for(let i=0; i<petSalon.pets.length;i++){
+        let pet=petSalon.pets[i];
+        if(pet.petName.toLowerCase()==searchString.toLowerCase() ||
+            pet.petGender.toLowerCase()==searchString.toLowerCase() ){
+            console.log("I found it");
+            document.getElementById(pet.id).classList.add(`bg-color`);
+        }
+        else{
+            document.getElementById(pet.id).classList.remove("bg-color");
+        }
+    }
+}
 function init(){
     //create some pets
     let scooby = new Pet("Scooby",50,"Male");
     let scrappy = new Pet("Scrappy",40,"Male");
     petSalon.pets.push(scooby,scrappy);
-    displayPets();
+    //displayPets();
+    displayPetsTable();
 }
 window.onload=init;
